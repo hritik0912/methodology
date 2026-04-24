@@ -1,0 +1,53 @@
+for min 50 poems: 
+
+for 10 epochs 
+📊 Test set performance: {'eval_loss': 1.3533906936645508, 'eval_accuracy': 0.6788617886178862, 
+'eval_runtime': 1.3182, 'eval_samples_per_second': 186.616, 'eval_steps_per_second': 12.138, 'epoch': 10.0} 
+
+for 20 epochs
+📊 Test set performance: {'eval_loss': 1.309346079826355, 'eval_accuracy': 0.6626016260162602, 
+'eval_runtime': 1.2622, 'eval_samples_per_second': 194.894, 'eval_steps_per_second': 12.676, 'epoch': 20.0}
+
+Observations from your log
+
+Training Loss
+Drops super fast:
+
+Epoch 1 → 0.37
+
+Epoch 5 → 0.026
+
+Epoch 10 → 0.001
+
+Epoch 12 onward → essentially 0.000
+
+→ The model has memorized the training set almost completely.
+
+Validation Loss
+
+Starts around 1.37
+
+Fluctuates a bit (lowest ~1.31 at epoch 3)
+
+Then keeps increasing steadily → ends at ~2.47.
+
+→ The gap between train and validation loss keeps widening → overfitting.
+
+Accuracy
+
+Peaks at ~69.3% (epoch 12)
+
+Fluctuates slightly but doesn’t improve beyond that.
+
+Even though training loss keeps going down, accuracy does not improve — another strong sign of overfitting.
+
+📌 Conclusion
+
+Best checkpoint is around epoch 8–12 (validation accuracy ~68–69%).
+
+Training longer only makes the model memorize, not generalize.
+
+Overfitting is clear: training loss → 0, validation loss → increases, accuracy plateaus.
+
+
+for min 20 poems: 
